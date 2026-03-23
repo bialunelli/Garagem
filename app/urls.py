@@ -1,3 +1,5 @@
+from posixpath import basename
+
 from django.contrib import admin
 from django.urls import include, path
 from drf_spectacular.views import (
@@ -12,11 +14,12 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
-from core.views import UserRegistrationView, UserViewSet
+from core.views import UserRegistrationView, UserViewSet, AcessorioViewSet,
 
 router = DefaultRouter()
 
 router.register(r'usuarios', UserViewSet, basename='usuarios')
+router.register(r'acessorio', AcessorioViewSet, basename='acessorio')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
